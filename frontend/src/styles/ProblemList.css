@@ -1,0 +1,31 @@
+/**
+ * ProblemList component styles
+ * Semantic list layout for displaying identified challenges
+ */
+
+.problem-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.empty-results {
+  text-align: center;
+  padding: var(--space-2xl);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--color-border);
+}
+
+.empty-results p {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .problem-list {
+    gap: var(--space-md);
+  }
+}

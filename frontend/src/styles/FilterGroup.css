@@ -1,0 +1,146 @@
+/**
+ * FilterGroup component styles
+ * Accessible radio button groups with proper fieldset/legend structure
+ */
+
+.filter-group {
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  background: white;
+  flex: 1;
+  min-width: 250px;
+}
+
+.filter-group:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.filter-legend {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-primary);
+  padding: 0 var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.filter-radio {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--color-accent-bright);
+}
+
+.filter-radio:disabled {
+  cursor: not-allowed;
+}
+
+/* Custom radio button styling for better accessibility */
+.filter-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-radio:hover:not(:disabled) {
+  border-color: var(--color-accent);
+}
+
+.filter-radio:focus {
+  outline: none;
+  border-color: var(--color-accent-bright);
+  box-shadow: var(--focus-ring);
+}
+
+.filter-radio:checked {
+  border-color: var(--color-accent-bright);
+  background-color: var(--color-accent-bright);
+}
+
+.filter-radio:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.filter-radio:disabled {
+  background-color: var(--color-surface);
+  cursor: not-allowed;
+}
+
+.filter-label {
+  margin-left: var(--space-md);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  cursor: pointer;
+  user-select: none;
+  line-height: var(--line-height-normal);
+}
+
+.filter-radio:disabled + .filter-label {
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+}
+
+/* Hover state for the entire option */
+.filter-option:hover .filter-label {
+  color: var(--color-primary);
+}
+
+/* Focus-within for better keyboard navigation */
+.filter-option:focus-within .filter-label {
+  font-weight: 600;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .filter-group {
+    min-width: 100%;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .filter-radio {
+    border-width: 3px;
+  }
+  
+  .filter-group {
+    border-width: 3px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .filter-radio {
+    transition: none;
+  }
+}
